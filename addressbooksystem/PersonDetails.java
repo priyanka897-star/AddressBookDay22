@@ -94,8 +94,6 @@ public class PersonDetails {
 	}
 	
 	
-	
-
 	@Override
 	public String toString() {
 		return "AddressBook [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", city="
@@ -103,6 +101,5 @@ public class PersonDetails {
 				+ "]";
 	}
 
-	
 }
 

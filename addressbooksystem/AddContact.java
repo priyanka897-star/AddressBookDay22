@@ -1,14 +1,9 @@
 package addressbooksystem;
 
-
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
-import java.util.Set;
 
 public class AddContact extends PersonDetails {
-	ArrayList<AddContact> addContactDetails = new <AddContact>ArrayList();
-		
+	     ArrayList<AddContact> addContactDetails = new <AddContact>ArrayList();
          InputScanner inputScanner = new InputScanner();
          
 	     public void setContactDetails()  {
@@ -18,6 +13,8 @@ public class AddContact extends PersonDetails {
 			setLastName(inputScanner.inputString());
 			System.out.println("enter the Address Name");
 			setAddress(inputScanner.inputString());
+			System.out.println("enter the City Name");
+			setCity(inputScanner.inputString());
 			System.out.println("enter the State Name");
 			setState(inputScanner.inputString());
 			System.out.println("enter the Phone Number");
@@ -32,6 +29,7 @@ public class AddContact extends PersonDetails {
 			getFirstName();
 			getLastName();
 			getAddress();
+			getCity();
 			getState();
 			getPhoneNumber();
 			getZip();
@@ -44,7 +42,7 @@ public class AddContact extends PersonDetails {
 			System.out.println(contatctDetails.size());
 			for (int i = 0; i < contatctDetails.size(); i++) {
 				if (contatctDetails.get(i).getFirstName().equals(name)) {
-					System.out.printf("enter the number to update contact details 1 First Name 2 to update Last Name 3 to phone number 4 to pincode 5 to address 6 to email 7 to state");
+					System.out.printf("enter the number to update contact details 1 First Name 2 to update Last Name 3 to phone number 4 to pincode 5 to address 6 to email 7 to state 8 to city");
 					int updateChoice =  inputScanner.inputInteger();
 					inputScanner.inputInteger();
 					
@@ -66,8 +64,8 @@ public class AddContact extends PersonDetails {
 						break;
 					case 4:
 						System.out.println("enter the Pincode/Postalcode to Update");
-						String pinC = inputScanner.inputString();
-						contatctDetails.get(i).setZip(pinC);
+						String pinCode = inputScanner.inputString();
+						contatctDetails.get(i).setZip(pinCode);
 						break;
 					case 5:
 						System.out.println("enter the Address to Update");
@@ -84,6 +82,12 @@ public class AddContact extends PersonDetails {
 						String state = inputScanner.inputString();
 						contatctDetails.get(i).setState(state);
 						break;
+					case 8:
+						System.out.println("enter the City to Update");
+						String city = inputScanner.inputString();
+						contatctDetails.get(i).setState(city);
+						break;
+							
 					default:
 						System.out.println("you have not update any details");
 						break;
@@ -105,20 +109,7 @@ public class AddContact extends PersonDetails {
 					System.out.println("not match any details");
 			}
 		}
-		 public void displayRecord(ArrayList<AddContact> contactDetails) {
-		        if (contactDetails.isEmpty()) {
-		            System.out.println("No Records To Display!!!");
-		        } else {
-		        	contactDetails.forEach(System.out::println);
-		        }
-		    }
 
-		
-			
-			
-				
-
-		    		
     public void print(ArrayList<AddContact> addContactDetails) {
 	for (AddContact s : addContactDetails) {
 		System.out.println((s));
@@ -126,8 +117,6 @@ public class AddContact extends PersonDetails {
 
   }
 
-	
-	
 }
 
 	
