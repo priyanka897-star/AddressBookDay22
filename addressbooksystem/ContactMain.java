@@ -4,23 +4,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class ContactMain {
 
 		public static Map<Integer, ArrayList<AddContact>>  hashMap = new HashMap<Integer, ArrayList<AddContact>>();
-	    static InputScanner inputScanner = new InputScanner();
+	        static InputScanner inputScanner = new InputScanner();
 
 		public static void main(String[] args) {
-		
 			System.out.println("enter the address book limit");
 			int addressBookLimit = inputScanner.inputInteger();
 			for (int i = 1; i <= addressBookLimit; i++) {
-				System.out.println("enter name of addressbook");
-	            
-	            String addressBookName = inputScanner.inputString();
-	            System.out.println("Addres book name is :" + addressBookName);
-				ArrayList<AddContact> addContactDetails = new ArrayList<>();
-				while (true) {
+			     System.out.println("enter name of addressbook");
+	                     String addressBookName = inputScanner.inputString();
+	                     System.out.println("Addres book name is :" + addressBookName);
+			     ArrayList<AddContact> addContactDetails = new ArrayList<>();
+			      while (true) {
 					AddContact addPersonDetails = new AddContact();
 					System.out.printf(
 							"Input  01 to add Details, 02 to Edit details, 03 to delete details . \n Enter any  single Digit Number   to Ignore");
@@ -29,13 +26,12 @@ public class ContactMain {
 						switch (options) {
 						case 01:
 							addPersonDetails.setContactDetails();
-		                        boolean checkDuplicate = addPersonDetails.checkDuplicate(addContactDetails,addPersonDetails);
-		                        if(!checkDuplicate)
-		                            addContactDetails.add(addPersonDetails);
-		                        else
-		                            System.out.println("Dont enter duplicate entry");
+		                                        boolean checkDuplicate = addPersonDetails.checkDuplicate(addContactDetails,addPersonDetails);
+		                                       if(!checkDuplicate)
+		                                            addContactDetails.add(addPersonDetails);
+		                                       else
+		                                            System.out.println("Dont enter duplicate entry");
 							 break;
-							
 						case 02:
 							System.out.println("Enter the name to edit");
 							addPersonDetails.editDetails(addContactDetails);
