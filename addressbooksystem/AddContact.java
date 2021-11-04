@@ -2,10 +2,10 @@ package addressbooksystem;
 
 import java.util.ArrayList;
 
-public class AddContact extends PersonDetails {
-	     ArrayList<AddContact> addContactDetails = new <AddContact>ArrayList();
+public class AddContact extends PersonDetails  {
+	ArrayList <AddContact> addContactDetails;
          InputScanner inputScanner = new InputScanner();
-         
+         ContactMain contact = new ContactMain();
 	     public void setContactDetails()  {
 			System.out.println("enter the First Name");
 			setFirstName(inputScanner.inputString() );
@@ -117,9 +117,17 @@ public class AddContact extends PersonDetails {
 
   }
 
-}
-
+	public boolean checkDuplicate(ArrayList<AddContact> addContactDetails2, AddContact addPersonDetails) {
 	
+               boolean check = false;
+               for (AddContact contact : addContactDetails2) {
+                   if (addPersonDetails.getFirstName().equals(contact.getFirstName()))
+                       check = true;
+               }
+               return check;
+	}
+
+}
 
 		    		
 
