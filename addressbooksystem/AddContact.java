@@ -1,11 +1,12 @@
 package addressbooksystem;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.function.Predicate;
-
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class AddContact extends PersonDetails {
 
@@ -127,6 +128,14 @@ public class AddContact extends PersonDetails {
 		}
 		return check;
 	}
+	
+	public static void sort(HashMap<Integer,ArrayList<AddContact>> hashMap){
+        for (int i = 1; i <= hashMap.size(); i++){
+            List<AddContact> sortedlist = hashMap.get(i).stream().sorted(Comparator.comparing(PersonDetails::getFirstName)).collect(Collectors.toList());
+            System.out.println(sortedlist);
+        }
+    }
+
 
 	public static void search(HashMap<Integer, ArrayList<AddContact>> hashMap) {
 		InputScanner inputScanner = new InputScanner();
@@ -156,4 +165,8 @@ public class AddContact extends PersonDetails {
 		System.out.println("Count for state: "+countForState);
 		
 	}
+
+	
+	
+	
 }

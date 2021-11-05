@@ -63,5 +63,7 @@ public class ContactMain {
 			System.out.println(hashMap.get(i));
 		}
 		AddContact.search(hashMap);
+		System.out.println(" After Sorting :");
+        AddContact.sort(hashMap);
 	}
 }
