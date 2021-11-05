@@ -1,8 +1,14 @@
 package addressbooksystem;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
+
+
 
 public class AddContact extends PersonDetails  {
+	
 	ArrayList <AddContact> addContactDetails;
          InputScanner inputScanner = new InputScanner();
          ContactMain contact = new ContactMain();
@@ -110,13 +116,6 @@ public class AddContact extends PersonDetails  {
 			}
 		}
 
-    public void print(ArrayList<AddContact> addContactDetails) {
-	for (AddContact s : addContactDetails) {
-		System.out.println((s));
-	}
-
-  }
-
 	public boolean checkDuplicate(ArrayList<AddContact> addContactDetails2, AddContact addPersonDetails) {
 	
                boolean check = false;
@@ -125,11 +124,26 @@ public class AddContact extends PersonDetails  {
                        check = true;
                }
                return check;
+	 }
+	
+
+	public static  void   search(HashMap<Integer, ArrayList<AddContact>>hashMap) {
+		InputScanner inputScanner = new InputScanner();
+		System.out.println("enter the city  name");
+		String city =inputScanner.inputString();
+		 System.out.println("Enter state name");
+	     String state = inputScanner.inputString();
+		for(int i=1; i<=ContactMain.hashMap.size(); i++) {
+				List<AddContact> cityList =ContactMain.hashMap.get(i).stream().filter(c -> c.getCity().equalsIgnoreCase(city)).collect(Collectors.toList());
+				System.out.println("List for city"+cityList);
+				List<AddContact> stateList =ContactMain.hashMap.get(i).stream().filter(s -> s.getState().equalsIgnoreCase(state)).collect(Collectors.toList());
+				System.out.println("List for state"+stateList);
+				
+		         }
 	}
 
+		
 }
-
-		    		
 
 	
 

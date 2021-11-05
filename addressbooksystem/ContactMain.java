@@ -7,9 +7,9 @@ import java.util.Map;
 
 public class ContactMain {
 
-		public static Map<Integer, ArrayList<AddContact>>  hashMap = new HashMap<Integer, ArrayList<AddContact>>();
+		 static HashMap<Integer, ArrayList<AddContact>>  hashMap = new HashMap<Integer, ArrayList<AddContact>>();
 	    static InputScanner inputScanner = new InputScanner();
-
+         static AddContact addContact = new AddContact();
 		public static void main(String[] args) {
 		
 			System.out.println("enter the address book limit");
@@ -43,6 +43,7 @@ public class ContactMain {
 						case 03:
 							addPersonDetails.deleteDetails(addContactDetails);
 							break;
+						
 						default:
 							System.out.println("you have not perform any operation");
 							break;
@@ -57,12 +58,12 @@ public class ContactMain {
 				hashMap.put(i, addContactDetails);
 			}
 			for(int i=1; i<=hashMap.size(); i++) {
-				System.out.println("address book "+i);
+				
+				System.out.println( "address book "+i);
 				System.out.println(hashMap.get(i));	
 			}
+			 AddContact.search(hashMap); 
 		}
-		
-		
 }
 		
 
