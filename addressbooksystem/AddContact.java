@@ -129,12 +129,34 @@ public class AddContact extends PersonDetails {
 		return check;
 	}
 	
-	public static void sort(HashMap<Integer,ArrayList<AddContact>> hashMap){
+	public static void sortByFirstName(HashMap<Integer,ArrayList<AddContact>> hashMap){
         for (int i = 1; i <= hashMap.size(); i++){
             List<AddContact> sortedlist = hashMap.get(i).stream().sorted(Comparator.comparing(PersonDetails::getFirstName)).collect(Collectors.toList());
             System.out.println(sortedlist);
         }
     }
+	
+	public static void sortByCity(HashMap<Integer,ArrayList<AddContact>> hashMap){
+        for (int i = 1; i <= hashMap.size(); i++){
+            List<AddContact> sortedlist = hashMap.get(i).stream().sorted(Comparator.comparing(PersonDetails::getCity)).collect(Collectors.toList());
+            System.out.println(sortedlist);
+        }
+    }
+	
+	public static void sortByState(HashMap<Integer,ArrayList<AddContact>> hashMap){
+        for (int i = 1; i <= hashMap.size(); i++){
+            List<AddContact> sortedlist = hashMap.get(i).stream().sorted(Comparator.comparing(PersonDetails::getState)).collect(Collectors.toList());
+            System.out.println(sortedlist);
+        }
+    }
+	
+	public static void sortByZip(HashMap<Integer,ArrayList<AddContact>> hashMap){
+        for (int i = 1; i <= hashMap.size(); i++){
+            List<AddContact> sortedlist = hashMap.get(i).stream().sorted(Comparator.comparing(PersonDetails::getZip)).collect(Collectors.toList());
+            System.out.println(sortedlist);
+        }
+    }
+	
 
 
 	public static void search(HashMap<Integer, ArrayList<AddContact>> hashMap) {

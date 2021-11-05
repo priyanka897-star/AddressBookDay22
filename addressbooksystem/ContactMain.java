@@ -64,6 +64,13 @@ public class ContactMain {
 		}
 		AddContact.search(hashMap);
 		System.out.println(" After Sorting :");
-        AddContact.sort(hashMap);
+		System.out.println("AddressBooks Sorted based on FirstName :");
+        AddContact.sortByFirstName(hashMap);
+        System.out.println("AddressBooks Sorted based on City :");
+        AddContact.sortByCity(hashMap); 
+        System.out.println("AddressBooks Sorted based on State :");
+        AddContact.sortByState(hashMap);
+        System.out.println("AddressBooks Sorted based on Zip :");
+        AddContact.sortByZip(hashMap);
 	}
 }
