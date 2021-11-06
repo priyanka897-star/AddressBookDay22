@@ -62,15 +62,16 @@ public class ContactMain {
 			System.out.println("address book " + i);
 			System.out.println(hashMap.get(i));
 		}
-		AddContact.search(hashMap);
-		System.out.println(" After Sorting :");
-		System.out.println("AddressBooks Sorted based on FirstName :");
-        AddContact.sortByFirstName(hashMap);
-        System.out.println("AddressBooks Sorted based on City :");
-        AddContact.sortByCity(hashMap); 
-        System.out.println("AddressBooks Sorted based on State :");
-        AddContact.sortByState(hashMap);
+
+
+        System.out.println("AddressBooks Sorted based on First Name :");
+        AddContact.sort(hashMap,SortOptions.NAME);
+        System.out.println("AddressBooks Sorted based on city :");
+        AddContact.sort(hashMap,SortOptions.CITY);
+        System.out.println("AddressBooks Sorted based on state :");
+        AddContact.sort(hashMap,SortOptions.STATE);
         System.out.println("AddressBooks Sorted based on Zip :");
-        AddContact.sortByZip(hashMap);
+        AddContact.sort(hashMap,SortOptions.ZIP);
+        
 	}
 }

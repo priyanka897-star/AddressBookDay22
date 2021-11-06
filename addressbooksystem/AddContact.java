@@ -143,10 +143,11 @@ public class AddContact extends PersonDetails {
         }
     }
 	
-	public static void sortByState(HashMap<Integer,ArrayList<AddContact>> hashMap){
+	public static void sort(HashMap<Integer,ArrayList<AddContact>> hashMap,SortOptions sortOptions){
         for (int i = 1; i <= hashMap.size(); i++){
-            List<AddContact> sortedlist = hashMap.get(i).stream().sorted(Comparator.comparing(PersonDetails::getState)).collect(Collectors.toList());
-            System.out.println(sortedlist);
+        	hashMap.get(i).stream().sorted(sortOptions.comparator).forEach(System.out::println);
+           // List<AddContact> sortedlist = hashMap.get(i).stream().sorted(Comparator.comparing(PersonDetails::getState)).collect(Collectors.toList());
+           // System.out.println(sortedlist);
         }
     }
 	
