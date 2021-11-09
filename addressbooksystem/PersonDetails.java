@@ -1,7 +1,7 @@
 package addressbooksystem;
 
 import java.util.Objects;
-
+import java.io.Serializable;
 public class PersonDetails {
 
 	@Override

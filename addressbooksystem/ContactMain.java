@@ -2,7 +2,8 @@ package addressbooksystem;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
+
+
 
 public class ContactMain {
 
@@ -16,7 +17,7 @@ public class ContactMain {
 		int addressBookLimit = inputScanner.inputInteger();
 		for (int i = 1; i <= addressBookLimit; i++) {
 			System.out.println("enter name of addressbook");
-
+             // hashMap = AddContact.readData();
 			String addressBookName = inputScanner.inputString();
 			System.out.println("Addres book name is :" + addressBookName);
 			ArrayList<AddContact> addContactDetails = new ArrayList<>();
@@ -54,8 +55,9 @@ public class ContactMain {
 					break;
 				}
 			}
-
+             
 			hashMap.put(i, addContactDetails);
+			AddContact.writeToFile(addContactDetails);
 		}
 		for (int i = 1; i <= hashMap.size(); i++) {
 
@@ -63,7 +65,9 @@ public class ContactMain {
 			System.out.println(hashMap.get(i));
 		}
 
-
+		System.out.println("Reading AddressBook from File");
+        AddContact.readFromFile();
+        System.out.println();
         System.out.println("AddressBooks Sorted based on First Name :");
         AddContact.sort(hashMap,SortOptions.NAME);
         System.out.println("AddressBooks Sorted based on city :");

@@ -1,9 +1,8 @@
 package addressbooksystem;
 
+import java.util.Comparator;
 
-	import java.util.Comparator;
-
-	public enum SortOptions {
+public enum SortOptions {
 	    NAME(Comparator.comparing(PersonDetails::getFirstName)),
 	    CITY(Comparator.comparing(PersonDetails::getCity)),
 	    STATE(Comparator.comparing(PersonDetails::getState)),
@@ -14,6 +13,6 @@ package addressbooksystem;
 	    SortOptions(Comparator<? super PersonDetails> comparator) {
 	        this.comparator = comparator;
 	    }
-	}
+}
 
 

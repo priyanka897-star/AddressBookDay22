@@ -1,12 +1,15 @@
 package addressbooksystem;
 
+
+
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 
 public class AddContact extends PersonDetails {
 
@@ -129,37 +132,41 @@ public class AddContact extends PersonDetails {
 		return check;
 	}
 	
-	public static void sortByFirstName(HashMap<Integer,ArrayList<AddContact>> hashMap){
-        for (int i = 1; i <= hashMap.size(); i++){
-            List<AddContact> sortedlist = hashMap.get(i).stream().sorted(Comparator.comparing(PersonDetails::getFirstName)).collect(Collectors.toList());
-            System.out.println(sortedlist);
-        }
-    }
-	
-	public static void sortByCity(HashMap<Integer,ArrayList<AddContact>> hashMap){
-        for (int i = 1; i <= hashMap.size(); i++){
-            List<AddContact> sortedlist = hashMap.get(i).stream().sorted(Comparator.comparing(PersonDetails::getCity)).collect(Collectors.toList());
-            System.out.println(sortedlist);
-        }
-    }
-	
 	public static void sort(HashMap<Integer,ArrayList<AddContact>> hashMap,SortOptions sortOptions){
         for (int i = 1; i <= hashMap.size(); i++){
         	hashMap.get(i).stream().sorted(sortOptions.comparator).forEach(System.out::println);
-           // List<AddContact> sortedlist = hashMap.get(i).stream().sorted(Comparator.comparing(PersonDetails::getState)).collect(Collectors.toList());
-           // System.out.println(sortedlist);
+          
         }
     }
 	
-	public static void sortByZip(HashMap<Integer,ArrayList<AddContact>> hashMap){
-        for (int i = 1; i <= hashMap.size(); i++){
-            List<AddContact> sortedlist = hashMap.get(i).stream().sorted(Comparator.comparing(PersonDetails::getZip)).collect(Collectors.toList());
-            System.out.println(sortedlist);
-        }
-    }
+	 public static void writeToFile(ArrayList<AddContact> addressBook) {
+	        try{
+	            FileWriter fileWriter = new FileWriter("C:/Users/User/eclipse-workspace/readwritefileio.txt");
+	            String stream = String.valueOf(addressBook);
+	            fileWriter.write(stream);
+	            fileWriter.close();
+	        } catch (Exception e){
+	            e.printStackTrace();
+	        }
+	    }
+
+	    public static void readFromFile(){
+	        try{
+	            FileReader fileReader = new FileReader("C:/Users/User/eclipse-workspace/readwritefileio.txt");
+	            int i;
+	            while ((i = fileReader.read()) != -1){
+	                System.out.print((char)i);}
+	        }catch (Exception e){
+	            e.printStackTrace();
+	        }
+	    }
+	
 	
 
 
+
+
+	
 	public static void search(HashMap<Integer, ArrayList<AddContact>> hashMap) {
 		InputScanner inputScanner = new InputScanner();
 		long count = 0;
@@ -175,7 +182,6 @@ public class AddContact extends PersonDetails {
 			count = cityList.stream().filter(predicate).count();
 			//System.out.println("Count for city: "+count);
 			System.out.println("List for city" + cityList);
-			
 			List<AddContact> stateList = ContactMain.hashMap.get(i).stream()
 					.filter(s -> s.getState().equalsIgnoreCase(state)).collect(Collectors.toList());
 			Predicate <AddContact> predicateForState = s -> s.getState().contains(state);
