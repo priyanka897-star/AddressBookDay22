@@ -139,10 +139,10 @@ public class AddContact extends PersonDetails {
         }
     }
 	
-	 public static void writeToFile(ArrayList<AddContact> addressBook) {
+	 public static void writeToFile(HashMap<Integer,ArrayList<AddContact>> hashMap) {
 	        try{
 	            FileWriter fileWriter = new FileWriter("C:/Users/User/eclipse-workspace/readwritefileio.txt");
-	            String stream = String.valueOf(addressBook);
+	            String stream = String.valueOf(hashMap);
 	            fileWriter.write(stream);
 	            fileWriter.close();
 	        } catch (Exception e){

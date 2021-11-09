@@ -57,7 +57,7 @@ public class ContactMain {
 			}
              
 			hashMap.put(i, addContactDetails);
-			AddContact.writeToFile(addContactDetails);
+			AddContact.writeToFile(hashMap);
 		}
 		for (int i = 1; i <= hashMap.size(); i++) {
 
@@ -76,6 +76,7 @@ public class ContactMain {
         AddContact.sort(hashMap,SortOptions.STATE);
         System.out.println("AddressBooks Sorted based on Zip :");
         AddContact.sort(hashMap,SortOptions.ZIP);
+        
         
 	}
 }
