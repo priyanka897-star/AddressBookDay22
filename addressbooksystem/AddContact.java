@@ -135,8 +135,6 @@ public class AddContact extends PersonDetails {
             System.out.println(sortedlist);
         }
     }
-
-
 	public static void search(HashMap<Integer, ArrayList<AddContact>> hashMap) {
 		InputScanner inputScanner = new InputScanner();
 		long count = 0;
@@ -163,10 +161,5 @@ public class AddContact extends PersonDetails {
 		}
 		System.out.println("Count for city: "+count);
 		System.out.println("Count for state: "+countForState);
-		
 	}
-
-	
-	
-	
 }
