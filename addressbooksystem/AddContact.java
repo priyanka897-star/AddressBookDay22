@@ -1,7 +1,5 @@
 package addressbooksystem;
 
-
-
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
@@ -138,7 +136,6 @@ public class AddContact extends PersonDetails {
           
         }
     }
-	
 	 public static void writeToFile(HashMap<Integer,ArrayList<AddContact>> hashMap) {
 	        try{
 	            FileWriter fileWriter = new FileWriter("C:/Users/User/eclipse-workspace/readwritefileio.txt");
@@ -160,13 +157,6 @@ public class AddContact extends PersonDetails {
 	            e.printStackTrace();
 	        }
 	    }
-	
-	
-
-
-
-
-	
 	public static void search(HashMap<Integer, ArrayList<AddContact>> hashMap) {
 		InputScanner inputScanner = new InputScanner();
 		long count = 0;
@@ -192,10 +182,5 @@ public class AddContact extends PersonDetails {
 		}
 		System.out.println("Count for city: "+count);
 		System.out.println("Count for state: "+countForState);
-		
 	}
-
-	
-	
-	
 }
