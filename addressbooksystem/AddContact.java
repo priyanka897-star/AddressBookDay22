@@ -124,11 +124,8 @@ public class AddContact extends PersonDetails  {
                return check;
 	 }
 	
-
 	public static void search(HashMap<Integer, ArrayList<AddContact>> hashMap) {
 		InputScanner inputScanner = new InputScanner();
-		long count ;
-		long totalCount  = 0;
 		System.out.println("enter the city or state name");
 		String cityOrState = inputScanner.inputString();
 		for (int i = 1; i <= ContactMain.hashMap.size(); i++) {
@@ -136,9 +133,8 @@ public class AddContact extends PersonDetails  {
 			Predicate <AddContact> predicate = c -> c.getCity().contains(cityOrState)||c.getState().contains(cityOrState);
 			count = list.stream().filter(predicate).count();
 			System.out.println("List for city or state   " + list);
-			totalCount = totalCount + count;
 		}
-		System.out.println("Total count : "+totalCount);
+		
 	}
 
 		
