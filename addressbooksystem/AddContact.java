@@ -5,8 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
-
 public class AddContact extends PersonDetails  {
 	
 	ArrayList <AddContact> addContactDetails;
@@ -127,19 +125,20 @@ public class AddContact extends PersonDetails  {
 	 }
 	
 
-	public static  void   search(HashMap<Integer, ArrayList<AddContact>>hashMap) {
+	public static void search(HashMap<Integer, ArrayList<AddContact>> hashMap) {
 		InputScanner inputScanner = new InputScanner();
-		System.out.println("enter the city  name");
-		String city =inputScanner.inputString();
-		 System.out.println("Enter state name");
-	     String state = inputScanner.inputString();
-		for(int i=1; i<=ContactMain.hashMap.size(); i++) {
-				List<AddContact> cityList =ContactMain.hashMap.get(i).stream().filter(c -> c.getCity().equalsIgnoreCase(city)).collect(Collectors.toList());
-				System.out.println("List for city"+cityList);
-				List<AddContact> stateList =ContactMain.hashMap.get(i).stream().filter(s -> s.getState().equalsIgnoreCase(state)).collect(Collectors.toList());
-				System.out.println("List for state"+stateList);
-				
-		         }
+		long count ;
+		long totalCount  = 0;
+		System.out.println("enter the city or state name");
+		String cityOrState = inputScanner.inputString();
+		for (int i = 1; i <= ContactMain.hashMap.size(); i++) {
+			List<AddContact> list = ContactMain.hashMap.get(i).stream().filter(c -> c.getCity().equalsIgnoreCase(cityOrState)||c.getState().equalsIgnoreCase(cityOrState)).collect(Collectors.toList());
+			Predicate <AddContact> predicate = c -> c.getCity().contains(cityOrState)||c.getState().contains(cityOrState);
+			count = list.stream().filter(predicate).count();
+			System.out.println("List for city or state   " + list);
+			totalCount = totalCount + count;
+		}
+		System.out.println("Total count : "+totalCount);
 	}
 
 		
